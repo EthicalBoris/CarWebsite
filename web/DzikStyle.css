@@ -1,0 +1,115 @@
+body {    
+    background-image: url("http://cseemyweb.essex.ac.uk/~bd17671/ce29x/bd17671/web/Images/background.jpg");        
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+	font-family: Arial;
+	font-size: 30px;
+    background-size: cover;
+}  
+
+footer {
+	bottom:0;
+	display:block;
+	background-color: #00cbff;
+}
+
+.content{
+	background-color: #FFFFFF;
+	text-align: center;
+	margin-left: auto;
+	margin-right:auto;
+	color: black;
+}
+th{
+	margin-right: 20px;
+}
+
+.content img {
+	display: block;
+	margin-right: auto;
+	margin-left:auto;
+	width: 60%;	
+}
+
+p.cornersButton {
+	text-align:center;
+	border-radius: 30px;
+	border: 3px solid #00cbff;
+	color: aliceblue;
+    padding: 2px; 
+    width: 150px;
+    height: 40px; 
+	margin-top: 42%;
+    margin-right:auto;
+	margin-left:auto;
+}
+p.cornersButton a {
+	text-decoration: none;
+	color:white;
+}
+.header{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	float: left;
+	display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none; 
+}
+
+ul.top{	
+	
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	background-color: #7e0000;	
+	position:sticky;
+	top:0;
+	width:100%;
+} 
+
+li.top{
+	list-style-type:none;
+	float:left;
+}
+
+li.top a{
+	text-decoration:none;
+	color:white;
+	display:block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding:16px;
+	width:597px;
+	
+}
+
+.hiddens{
+	visibility: hidden;
+}
+
+li.top a:hover {
+  background-color: #3f3f3f;
+}
+
+input[type="radio"]{
+	display: inline-block;
+	padding:10px;
+	margin-left: 100px;
+	background-color: #00cbff;
+}
+
+input[type = "submit"]{
+	width: 200px;  height: 50px;
+	background-color: #7e0000; /* Green */
+	color: white;	
+	font-size: 16px;
+	margin-top: 50px;
+}

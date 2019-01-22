@@ -1,0 +1,205 @@
+--
+-- Table structure for table `cars`
+--
+
+DROP TABLE IF EXISTS `cars`;
+CREATE TABLE `cars` (
+  `carID` int(11) NOT NULL AUTO_INCREMENT,
+  `Make` varchar(45) DEFAULT NULL,
+  `Model` varchar(45) NOT NULL,
+  `Price` float NOT NULL,
+  PRIMARY KEY (`carID`)
+);
+--
+-- Table structure for table `colours`
+--
+
+DROP TABLE IF EXISTS `colours`;
+CREATE TABLE `colours` (
+  `colour` varchar(45) NOT NULL,
+  `carID` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`colour`,`carID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `custID` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) NOT NULL,
+  PRIMARY KEY (`custID`,`email`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `custID_UNIQUE` (`custID`)
+);
+
+
+--
+-- Table structure for table `engines`
+--
+
+DROP TABLE IF EXISTS `engines`;
+CREATE TABLE `engines` (
+  `engine` varchar(45) NOT NULL,
+  `carID` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`engine`,`carID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+--
+-- Table structure for table `interiors`
+--
+
+DROP TABLE IF EXISTS `interiors`;
+CREATE TABLE `interiors` (
+  `interior` varchar(45) NOT NULL,
+  `carID` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`interior`,`carID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `OrderID` int(11) NOT NULL AUTO_INCREMENT,
+  `carID` int(11) DEFAULT NULL,
+  `carTrim` varchar(45) DEFAULT NULL,
+  `colour` varchar(45) DEFAULT NULL,
+  `interior` varchar(45) DEFAULT NULL,
+  `engine` varchar(45) DEFAULT NULL,
+  `wheel` varchar(45) DEFAULT NULL,
+  `sensors` varchar(45) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  PRIMARY KEY (`OrderID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+--
+-- Table structure for table `sensors`
+--
+
+DROP TABLE IF EXISTS `sensors`;
+CREATE TABLE `sensors` (
+  `sensors` varchar(45) NOT NULL,
+  `carID` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`sensors`,`carID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+--
+-- Table structure for table `trims`
+--
+
+DROP TABLE IF EXISTS `trims`;
+CREATE TABLE `trims` (
+  `carTrim` varchar(45) NOT NULL,
+  `carID` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`carTrim`,`carID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+
+--
+-- Table structure for table `wheels`
+--
+
+DROP TABLE IF EXISTS `wheels`;
+CREATE TABLE `wheels` (
+  `wheel` varchar(45) NOT NULL,
+  `carID` int(11) NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`wheel`,`carID`),
+  KEY `carID` (`carID`),
+  FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`)
+);
+
+--
+-- POPULATE
+--
+INSERT INTO cars VALUES 
+(1,"Ford","Mondeo",21500),
+(2,"Ford","Focus",18000),
+(3,"Ford","Fiesta",14000);
+
+INSERT INTO trims VALUES
+("Standard",1,0),
+("Sport",1,750),
+("Titanium",1,3000),
+("Standard",2,0),
+("EcoMax",2,600),
+("Sport",2,1600),
+("Titanium",2,2100),
+("Standard",3,0),
+("EcoMax",3,500),
+("Sport",3,1500),
+("Titanium",3,2000);
+
+INSERT INTO colours VALUES 
+("Red",1,0),
+("Green",1,0),
+("Metallic Blue",1,1500),
+("Matt Black",1,2000),
+("Red",2,0),
+("Green",2,0),
+("Metallic Blue",2,1000),
+("Red",3,0),
+("Green",3,0),
+("Metallic Blue",3,1000);
+
+INSERT INTO interiors VALUES
+("Standard",1,0),
+("Half Leather",1,1250),
+("Full Leather",1,2000),
+("Standard",2,0),
+("Half Leather",2,500),
+("Full Leather",2,1000),
+("Standard",3,0),
+("Half Leather",3,500),
+("Full Leather",3,1000);
+
+INSERT INTO engines VALUES
+("1.4L",1,0),
+("2.0L",1,1750),
+("3.0L",1,3000),
+("1.0L",2,0),
+("2.0L",2,1500),
+("2.2L",2,1750),
+("1.0L",3,0),
+("2.0L",3,1500),
+("2.2L",3,1750);
+
+INSERT INTO wheels VALUES
+("Standard",1,0),
+('16 Alloy',1,1500),
+('17 Executive Alloy',1,2000),
+('18 Sport Alloy',1,2500),
+("Standard",2,0),
+('16 Alloy',2,1500),
+('17 Executive Alloy',2,2000),
+('18 Sport Alloy',2,2500),
+("Standard",3,0),
+('16 Alloy',3,1500),
+('17 Executive Alloy',3,2000),
+('18 Sport Alloy',3,2500);
+
+INSERT INTO sensors VALUES
+("No",1,0),
+("No",2,0),
+("No",3,0),
+("Yes",1,1000),
+("Yes",2,1000),
+("Yes",3,1000);
+
+
+
+
